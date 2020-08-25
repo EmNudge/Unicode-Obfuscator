@@ -1,9 +1,10 @@
-export function getRgbLightness(r, g, b) {
+export default `
+function getRgbLightness(r, g, b) {
   const minAndMax = Math.max(r, g, b) + Math.min(r, g, b);
   return minAndMax / 2 / 255;
 }
   
-export function rgbToHsl(r, g, b) {
+function rgbToHsl(r, g, b) {
   const red = r / 255;
   const green = g / 255;
   const blue = b / 255;
@@ -39,5 +40,4 @@ export function rgbToHsl(r, g, b) {
     s: Math.round(getSaturation() * 100),
     l: Math.round(lightness * 100),
   };
-}
-
+}`;

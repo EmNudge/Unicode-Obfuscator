@@ -1,7 +1,7 @@
 <script>
 	import { transform } from './utils/transformText';
 	import Prism from 'svelte-prism';
-	import { getRgbLightness, rgbToHsl } from './utils/sampleCode';
+	import code from './utils/sampleCode';
 
 	let value = '';
 	
@@ -10,12 +10,6 @@
 	function copy() {
 		navigator.clipboard.writeText(output);
 	}
-
-	function addSampleCode() {
-		const func1 = getRgbLightness.toString();
-		const func2 = rgbToHsl.toString();
-		value = `${func1}\n\n${func2}`;
-	}
 </script>
 
 <main>
@@ -23,7 +17,7 @@
 
 	<div class="code-input">
 		<textarea bind:value placeholder="paste code here..."></textarea>
-		<button on:click={addSampleCode}>Sample Code</button>
+		<button on:click={() => value = code}>Sample Code</button>
 	</div>
 
 	<Prism language="javascript" source="{output}" />
